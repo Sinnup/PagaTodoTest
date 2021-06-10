@@ -22,7 +22,7 @@ class MainAdapter(private val transactions: ArrayList<UserTransaction>) :
                 amount.text = String.format("%,d", userTransaction.amount)
                 currencyCode.text = userTransaction.currencyCode
 
-                TimeUtils.convertTimeStampMilisToLocal(userTransaction.timestamp)?.let {
+                TimeUtils.convertTimeStampMillisToLocal(userTransaction.timestamp)?.let {
                     time.text = it
                 }
             }
@@ -45,6 +45,5 @@ class MainAdapter(private val transactions: ArrayList<UserTransaction>) :
             clear()
             addAll(transactions)
         }
-
     }
 }

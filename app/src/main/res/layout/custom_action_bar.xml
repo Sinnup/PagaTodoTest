@@ -20,4 +20,12 @@
         android:textColor="#FFFFFF"
         tools:text="Title" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/responseType"
+        android:textAllCaps="false"
+        android:textColor="@color/white_main"
+        android:text="@string/select_response_type" />
+
 </LinearLayout>

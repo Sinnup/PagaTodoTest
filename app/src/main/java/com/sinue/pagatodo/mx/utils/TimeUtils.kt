@@ -5,7 +5,7 @@ import java.util.*
 
 object TimeUtils {
 
-    fun convertTimeStampMilisToLocal(timestamp: Long): String? {
+    fun convertTimeStampMillisToLocal(timestamp: Long): String? {
 
         val simpleDateFormat =
             SimpleDateFormat("dd/MM/yyyy HH:mm", Locale("Spanish", "Mexico"))

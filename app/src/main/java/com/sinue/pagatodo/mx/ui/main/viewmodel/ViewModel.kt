@@ -33,7 +33,7 @@ class MainViewModel(private val mainRepository: MainRepository) : ViewModel() {
         } catch (exception: Exception) {
             emit(
                 Resource.error(
-                    data = null, message = exception.message ?: "Error Occurred!"
+                    data = null, message = exception.message ?: "Unkonwn error!"
                 )
             )
         }

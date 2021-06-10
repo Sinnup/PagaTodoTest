@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.PopupMenu
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.sinue.pagatodo.mx.R
+import com.sinue.pagatodo.mx.R.menu
 import com.sinue.pagatodo.mx.data.api.ApiHelper
 import com.sinue.pagatodo.mx.data.api.RetrofitBuilder
 import com.sinue.pagatodo.mx.data.model.UserTransaction
@@ -18,11 +21,14 @@ import com.sinue.pagatodo.mx.ui.main.adapter.MainAdapter
 import com.sinue.pagatodo.mx.ui.main.viewmodel.MainViewModel
 import com.sinue.pagatodo.mx.utils.Status
 
+
+// TODO: Save instance of values
 class MainActivity : AppCompatActivity() {
 
     private lateinit var viewModel: MainViewModel
     private lateinit var adapter: MainAdapter
     private lateinit var binding: ActivityMainBinding
+    private var responseType: MainRepository.ResponseType = MainRepository.ResponseType.SUCCESS
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,11 +38,12 @@ class MainActivity : AppCompatActivity() {
         setupViewModel()
         setupUI()
         setupObservers()
+        setUpListeners()
     }
 
 
     private fun setupViewModel() {
-        viewModel = ViewModelProviders.of(
+        viewModel = ViewModelProvider(
             this,
             ViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
         ).get(MainViewModel::class.java)
@@ -55,17 +62,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupObservers() {
-        viewModel.getTransactions(MainRepository.ResponseType.SUCCESS)
+        showTransactions()
+    }
+
+    fun showTransactions() {
+        viewModel.getTransactions(responseType)
             .observe(this, Observer {
                 it?.let { resource ->
                     when (resource.status) {
                         Status.SUCCESS -> {
                             binding.recyclerView.visibility = View.VISIBLE
                             binding.progressBar.visibility = View.GONE
-                            resource.data?.let { transactions -> retrieveList(transactions) }
+                            resource.data?.let { transactions ->
+                                retrieveList(transactions)
+                            }
                         }
                         Status.ERROR -> {
                             binding.recyclerView.visibility = View.VISIBLE
+                            retrieveList(emptyList())
                             binding.progressBar.visibility = View.GONE
                             Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
                         }
@@ -76,6 +90,39 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             })
+    }
+
+    fun setUpListeners() {
+        binding.actionBar.responseType.setOnClickListener {
+            //Creating the instance of PopupMenu
+            //Creating the instance of PopupMenu
+            val popup = PopupMenu(this, it)
+            //Inflating the Popup using xml file
+            //Inflating the Popup using xml file
+            popup.getMenuInflater().inflate(menu.pop_up_menu, popup.getMenu())
+
+            //registering popup with OnMenuItemClickListener
+            //registering popup with OnMenuItemClickListener
+            popup.setOnMenuItemClickListener { item ->
+                when (item.itemId) {
+                    R.id.success -> {
+                        responseType = MainRepository.ResponseType.SUCCESS
+                    }
+                    R.id.empty -> {
+                        responseType = MainRepository.ResponseType.EMPTY
+                    }
+                    R.id.malformed -> {
+                        responseType = MainRepository.ResponseType.MALFORMED
+                    }
+                }
+
+                showTransactions()
+                true
+            }
+
+            popup.show() //showing popup menu
+
+        }
     }
 
     private fun retrieveList(transaction: List<UserTransaction>) {

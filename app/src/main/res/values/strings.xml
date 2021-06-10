@@ -4,4 +4,9 @@
     <string name="currency">Currency</string>
     <string name="amount">Amount</string>
     <string name="time">Date</string>
+    <string name="error_class_name">Unknown class name</string>
+    <string name="successful_response">Successful response</string>
+    <string name="empty_response">Empty response</string>
+    <string name="malformed_response">Malformed response</string>
+    <string name="select_response_type">Select response type</string>
 </resources>
