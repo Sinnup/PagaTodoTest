@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/card_margin"
+    app:cardBackgroundColor="@color/green_light"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    app:cardElevation="@dimen/card_elevantion"
+    app:contentPadding="@dimen/card_padding">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_main"
+        android:padding="10dp"
+        android:stretchColumns="10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_weight="5"
+                android:text="@string/store"
+                android:textAlignment="center"
+                android:textColor="@color/black" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/merchantName"
+                style="@style/TextAppearance.AppCompat.Large"
+                android:layout_weight="5"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                tools:text="Starbucks" />
+        </TableRow>
+
+        <TableRow>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_weight="5"
+                android:text="@string/amount"
+                android:textAlignment="center"
+                android:textColor="@color/black" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/amount"
+                style="@style/TextAppearance.AppCompat.Large"
+                android:layout_weight="5"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                tools:text="10" />
+        </TableRow>
+
+        <TableRow>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_weight="5"
+                android:text="@string/currency"
+                android:textAlignment="center"
+                android:textColor="@color/black" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/currencyCode"
+                style="@style/TextAppearance.AppCompat.Large"
+                android:layout_weight="5"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                tools:text="usd" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_weight="5"
+                android:text="@string/time"
+                android:textAlignment="center"
+                android:textColor="@color/black" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/time"
+                style="@style/TextAppearance.AppCompat.Large"
+                android:layout_weight="5"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                tools:text="09/05/2021 12:40" />
+
+        </TableRow>
+    </TableLayout>
+
+</androidx.cardview.widget.CardView>

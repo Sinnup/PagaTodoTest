@@ -1,0 +1,35 @@
+// Project configuration
+
+ext{
+    // App info
+    minSdk = 25
+    applicationId = "com.pagatodo.mx"
+    targetSdk = 30
+    compileSdk = 30
+    buildTools = "28.0.3"
+    versionCode = 1
+    versionName = "0.0.1"
+}
+
+ext {
+
+    def kotlinVersion = "1.5.10"
+    def moshiVersion = "1.8.0"
+    def okhttp3Version = "4.3.0"
+    def retrofitVersion = "2.8.1"
+
+    retrofit2 = [
+            moshi: "com.squareup.moshi:moshi-kotlin:$moshiVersion",
+            moshiCodeGen: "com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion",
+            okHttp3: "com.squareup.okhttp3:okhttp:$okhttp3Version",
+            okhttp3Logging: "com.squareup.okhttp3:logging-interceptor:$okhttp3Version",
+            retrofit2: "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitGson: "com.squareup.retrofit2:converter-gson:2.7.1",
+            retrofit2Moshi: "com.squareup.retrofit2:converter-moshi:$retrofitVersion",
+            retrofitadapter: "com.squareup.retrofit2:adapter-rxjava2:2.4.0"
+    ]
+
+    unitTestLibraries = [
+            junit:  "junit:junit:4.13.2"
+    ]
+}

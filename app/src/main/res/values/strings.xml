@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PagaTodo</string>
+    <string name="store">Store</string>
+    <string name="currency">Currency</string>
+    <string name="amount">Amount</string>
+    <string name="time">Date</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="recycler_margin_top">20dp</dimen>
+    <dimen name="transaction_margin_start">8dp</dimen>
+    <dimen name="transaction_margin_top">4dp</dimen>
+    <dimen name="card_elevantion">5dp</dimen>
+    <dimen name="card_corner_radius">10dp</dimen>
+    <dimen name="card_margin">10dp</dimen>
+    <dimen name="card_padding">10dp</dimen>
+    <dimen name="action_bar_margin">10dp</dimen>
+</resources>
