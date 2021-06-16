@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/success"
+        android:title="@string/successful_response" />
+    <item
+        android:id="@+id/empty"
+        android:title="@string/empty_response"/>
+    <item
+        android:id="@+id/malformed"
+        android:title="@string/malformed_response"/>
+</menu>
